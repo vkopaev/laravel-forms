@@ -63,8 +63,8 @@ Route::middleware(['auth', 'web'])->prefix('forms')->name('forms.')->group(funct
                 $cellCoordinate = Coordinate::stringFromColumnIndex($col) . $row; // Формируем координату ячейки (A2, B2, ...)
                 $cell = $sheet->getCell($cellCoordinate);
                 $header = $headers[$col - 1];
-                $formKey = Form::getKeyByLabel($form, $header);
-                $rowData[$formKey] = $cell->getFormattedValue();
+                $formKey = Form::getKeyByLabel($form::fields(), $header);
+                $rowData[$formKey] = $form::formatByKey($formKey, $cell->getFormattedValue());
             }
             $data[] = $rowData;
         }
