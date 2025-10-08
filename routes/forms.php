@@ -27,8 +27,8 @@ Route::middleware(['auth', 'web'])->prefix('forms')->name('forms.')->group(funct
             false,
             $form::toTableValidation(),
             method_exists($form, 'columnWidth') ? $form::columnWidth() : []
-        ), __('File').".xlsx");
-    });
+        ), __('File') . ".xlsx");
+    })->name('table.show');
     Route::post('/table/parse', function (Request $request) {
         $request->validate([
             'file' => ['required', 'file', 'mimes:xlsx']
