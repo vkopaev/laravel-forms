@@ -5,6 +5,7 @@ use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use Veneridze\LaravelDocuments\DocumentFactory;
 use Veneridze\LaravelForms\Controllers\DraftController;
+use Veneridze\LaravelForms\Form;
 
 Route::middleware(['auth', 'web'])->prefix('forms')->name('forms.')->group(function () {
 
@@ -31,10 +32,11 @@ Route::middleware(['auth', 'web'])->prefix('forms')->name('forms.')->group(funct
     })->name('table.show');
     Route::post('/table/parse', function (Request $request) {
         $request->validate([
+            'form' => ['required', 'string'],
             'file' => ['required', 'file', 'mimes:xlsx']
         ]);
         $file = $request->file('file');
-
+        $form = $request->input('form');
         // Загружаем файл с помощью PhpSpreadsheet
         $spreadsheet = IOFactory::load($file->getPathname());
 
@@ -60,7 +62,9 @@ Route::middleware(['auth', 'web'])->prefix('forms')->name('forms.')->group(funct
             for ($col = 1; $col <= $highestColumnIndex; ++$col) {
                 $cellCoordinate = Coordinate::stringFromColumnIndex($col) . $row; // Формируем координату ячейки (A2, B2, ...)
                 $cell = $sheet->getCell($cellCoordinate);
-                $rowData[$headers[$col - 1]] = $cell->getFormattedValue();
+                $header = $headers[$col - 1];
+                $formKey = Form::getKeyByLabel($form, $header);
+                $rowData[$formKey] = $cell->getFormattedValue();
             }
             $data[] = $rowData;
         }
