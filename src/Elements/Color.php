@@ -10,6 +10,8 @@ class Color extends Input implements Element
     public function __construct(
         public string $label,
         public string $key,
+        public string $format = 'hsl',
+        public bool $alpha = false,
         public bool $disabled = false,
         public bool $required = false,
         public array $visibleif = [],
@@ -22,6 +24,8 @@ class Color extends Input implements Element
         return [
             'type' => 'color',
             'label' => $this->label,
+            'format' => $this->format,
+            'alpha' => $this->alpha,
             'disabled' => $this->disabled,
             'required' => $this->required,
             'key' => $this->key,
