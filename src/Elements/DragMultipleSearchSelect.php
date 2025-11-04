@@ -12,6 +12,7 @@ final class DragMultipleSearchSelect extends MultipleSelectFromList
         public string $label,
         public string $key,
         public string $link,
+        public ?array $form = null,
         public ?string $addLink = null,
         public ?array $fields = null,
         public bool $emptyFetch = false,
@@ -27,6 +28,7 @@ final class DragMultipleSearchSelect extends MultipleSelectFromList
     {
         return [
             'type' => $this->type,
+            'form' => $this->form,
             'required' => $this->required,
             'emptyFetch' => $this->emptyFetch,
             'canSearch' => $this->canSearch,

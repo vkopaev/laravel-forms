@@ -42,4 +42,9 @@ class Text extends Input implements Element
     {
         return trim(Str::lower($label));
     }
+
+    public function getFormatValue(string|int $value)
+    {
+        return $value;
+    }
 }

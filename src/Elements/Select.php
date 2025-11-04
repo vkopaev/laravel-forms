@@ -44,4 +44,11 @@ final class Select extends SingleSelectFromList
         $opt = collect($this->options)->filter(fn(Option $op) => Form::compareString(Str::lower($op->label)) == Form::compareString(trim(Str::lower($label))))->first();
         return $opt ? $opt->value : null;
     }
+
+
+    public function getFormatValue(string|int $value)
+    {
+        $opt = collect($this->options)->filter(fn(Option $op) => $op->value == $value)->first();
+        return optional($opt)->label;
+    }
 }

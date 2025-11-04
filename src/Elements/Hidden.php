@@ -35,5 +35,10 @@ final class Hidden implements Element
             'value' => $this->value
         ];
     }
+
+    public function getFormatValue(string|int $value)
+    {
+        return $value;
+    }
 }
 ?>

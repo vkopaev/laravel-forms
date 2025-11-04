@@ -51,4 +51,9 @@ final class Date extends Input implements Element
     {
         return Str::lower($label);
     }
+
+    public function getFormatValue(string|int $value)
+    {
+        return Carbon::parse($value)->format('d.m.y');
+    }
 }

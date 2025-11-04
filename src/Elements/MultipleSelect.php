@@ -7,6 +7,7 @@ use Veneridze\LaravelForms\Prototype\MultipleSelectFromList;
 final class MultipleSelect extends MultipleSelectFromList
 {
     public string $type = 'select';
+    public bool $multiple = true;
     public function __construct(
         public string $label,
         public string $key,
@@ -48,5 +49,14 @@ final class MultipleSelect extends MultipleSelectFromList
             ->values()
             ->map(fn(Option $op) => $op->value)
             ->all();
+    }
+
+    public function getFormatValue(array $values)
+    {
+        return collect($this->options)
+            ->filter(fn(Option $op) => in_array($op->value, $values))
+            ->values()
+            ->map(fn(Option $op) => $op->label)
+            ->implode(', ');
     }
 }

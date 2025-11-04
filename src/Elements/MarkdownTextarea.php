@@ -25,4 +25,9 @@ class MarkdownTextarea extends Input implements Element
             'displayifset' => $this->displayifset
         ];
     }
+
+    public function getFormatValue(string|int $value)
+    {
+        return $value;
+    }
 }

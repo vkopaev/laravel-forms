@@ -40,4 +40,9 @@ final class Checkbox extends Input implements Element
     {
         return Str::lower($label);
     }
+
+    public function getFormatValue(string|int $value)
+    {
+        return $value ? 'Да' : 'Нет';
+    }
 }

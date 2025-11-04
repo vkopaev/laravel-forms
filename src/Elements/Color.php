@@ -38,4 +38,9 @@ class Color extends Input implements Element
     {
         return trim(Str::lower($label));
     }
+
+    public function getFormatValue($value)
+    {
+        return $value;
+    }
 }

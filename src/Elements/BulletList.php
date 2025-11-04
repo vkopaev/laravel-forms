@@ -47,4 +47,8 @@ class BulletList extends Input implements Element
         $values = array_map('trim', $values);
         return $values;
     }
+    public function getFormatValue(array $values)
+    {
+        return implode(', ', $values);
+    }
 }
