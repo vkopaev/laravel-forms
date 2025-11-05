@@ -10,8 +10,9 @@ final class DragMultipleSearchSelect extends MultipleSelectFromList
     public string $type = 'dragmultiplesearchselect';
     public function __construct(
         public string $label,
-        public string $key,
         public string $link,
+        public array $keys = [],
+        public ?string $key = null,
         public ?array $form = null,
         public ?string $addLink = null,
         public ?array $fields = null,
@@ -28,6 +29,7 @@ final class DragMultipleSearchSelect extends MultipleSelectFromList
     {
         return [
             'type' => $this->type,
+            'keys' => $this->keys,
             'form' => $this->form,
             'required' => $this->required,
             'emptyFetch' => $this->emptyFetch,
