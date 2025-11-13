@@ -242,7 +242,12 @@ class Form extends Data
         //$other = array_filter(array_change_key_case($this->all()), fn($v, $k) => $v !== null, ARRAY_FILTER_USE_BOTH);
         $allows = array_change_key_case(DB::getSchemaBuilder()->getColumnListing(app(static::$model)->getTable()));
         $allows = array_values(array_filter($allows, fn($k) => $k != 'id'));
-        $data = collect($other)->only($allows)->toArray();
+        $data = collect($other)->only($allows)
+        ->mapWithKeys(function ($item, $key) {
+            $isBool = filter_var($item, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+            return [$key => is_bool($isBool) ? $isBool : $item];
+        })
+        ->toArray();
         $obj = static::$model::create($data);
 
         if (!method_exists($obj, 'hasManyDeep')) {
@@ -268,7 +273,12 @@ class Form extends Data
         $other = $this->all();
         //$other = array_filter(array_change_key_case($this->all()), fn($v, $k) => $v !== null, ARRAY_FILTER_USE_BOTH);
         $allows = array_change_key_case(DB::getSchemaBuilder()->getColumnListing(app(static::$model)->getTable()));
-        $data = collect($other)->only($allows)->toArray();
+        $data = collect($other)->only($allows)
+        ->mapWithKeys(function ($item, $key) {
+            $isBool = filter_var($item, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+            return [$key => is_bool($isBool) ? $isBool : $item];
+        })
+        ->toArray();
         $model->update($data);
         if (!method_exists($model, 'hasManyDeep')) {
             $this->updateRelationShips($model, $other);
