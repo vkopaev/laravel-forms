@@ -10,7 +10,6 @@ final class DragMultipleSearchSelect extends MultipleSelectFromList
     public string $type = 'dragmultiplesearchselect';
     public function __construct(
         public string $label,
-        public string $link,
         public array $keys = [],
         public ?string $key = null,
         public ?array $form = null,
@@ -23,6 +22,7 @@ final class DragMultipleSearchSelect extends MultipleSelectFromList
         public string $dropTag = 'form-bulletlist', 
         public array $visibleif = [],
         public array $displayifset = [],
+        public ?string $link = null,
         public ?\Closure $format = null,
         public bool $required = false
     ) {
