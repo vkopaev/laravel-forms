@@ -16,6 +16,7 @@ class Text extends Input implements Element
         public array $displayifset = [],
         public ?string $prefix = null,
         public ?string $mask = null,
+        public ?string $postfix = null,
         public ?int $maxlength = null,
         public ?string $placeholder = null,
         public ?string $icon = null
@@ -34,6 +35,8 @@ class Text extends Input implements Element
             'required' => $this->required,
             'key' => $this->key,
             'visibleif' => $this->visibleif,
+            'prefix' => $this->prefix,
+            'postfix' => $this->postfix,
             'displayifset' => $this->displayifset
         ];
     }
