@@ -244,8 +244,12 @@ class Form extends Data
         $allows = array_values(array_filter($allows, fn($k) => $k != 'id'));
         $data = collect($other)->only($allows)
         ->mapWithKeys(function ($item, $key) {
-            $isBool = filter_var($item, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-            return [$key => is_bool($isBool) ? $isBool : $item];
+            if($item === "true") {
+                $item = true;
+            } elseif($item === "false") {
+                $item = false;
+            }
+            return [$key => $item];
         })
         ->toArray();
         $obj = static::$model::create($data);
@@ -275,8 +279,12 @@ class Form extends Data
         $allows = array_change_key_case(DB::getSchemaBuilder()->getColumnListing(app(static::$model)->getTable()));
         $data = collect($other)->only($allows)
         ->mapWithKeys(function ($item, $key) {
-            $isBool = filter_var($item, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-            return [$key => is_bool($isBool) ? $isBool : $item];
+            if($item === "true") {
+                $item = true;
+            } elseif($item === "false") {
+                $item = false;
+            }
+            return [$key => $item];
         })
         ->toArray();
         $model->update($data);
