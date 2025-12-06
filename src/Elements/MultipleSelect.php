@@ -9,8 +9,8 @@ final class MultipleSelect extends MultipleSelectFromList
     public string $type = 'select';
     public bool $multiple = true;
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public bool $checkboxes = false,
         public bool $disabled = false,
         public array $options = [],

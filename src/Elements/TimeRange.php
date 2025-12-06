@@ -11,9 +11,9 @@ final class TimeRange extends Input implements Element
 {
     public string $type = 'timerange';
     public function __construct(
-        public string $label,
         public string $startKey,
         public string $endKey,
+        public ?string $label = null,
         public ?bool $disabled = false,
         public bool $required = false,
         public ?int $step = null,

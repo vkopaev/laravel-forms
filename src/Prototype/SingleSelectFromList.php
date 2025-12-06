@@ -6,7 +6,7 @@ use Veneridze\LaravelForms\Interfaces\Element;
 
 class SingleSelectFromList extends Input implements Element {
 
-    public string $label;
+    public ?string $label = null;
     /**
      * Summary of options
      * @var array<Option>

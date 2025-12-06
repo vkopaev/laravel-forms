@@ -8,8 +8,8 @@ class BulletList extends Input implements Element
 {
     public string $type = 'bulletlist';
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public bool $disabled = false,
         public array $visibleif = [],
         public array $displayifset = [],

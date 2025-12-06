@@ -7,7 +7,6 @@ use Veneridze\LaravelForms\Interfaces\Element;
 class MultipleSelectFromList extends Input implements Element
 {
 
-    public string $label;
     /**
      * Summary of options
      * @var array<Option>

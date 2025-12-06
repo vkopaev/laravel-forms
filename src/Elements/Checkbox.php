@@ -15,8 +15,8 @@ final class Checkbox extends Input implements Element
     }
 
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public bool $disabled = false,
         public ?string $placeholder = null,
         public array $visibleif = [],

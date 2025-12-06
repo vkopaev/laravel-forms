@@ -9,8 +9,8 @@ final class DragMultipleSearchSelect extends MultipleSelectFromList
 {
     public string $type = 'dragmultiplesearchselect';
     public function __construct(
-        public string $label,
         public array $keys = [],
+        public ?string $label = null,
         public ?string $key = null,
         public ?array $form = null,
         public ?array $addFields = null,

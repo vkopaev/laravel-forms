@@ -9,8 +9,8 @@ final class Radio extends SingleSelectFromList
 {
     public string $type = 'radio';
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public ?string $style = null,
         public array $columns = [],
         public bool $disabled = false,

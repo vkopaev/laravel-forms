@@ -7,8 +7,8 @@ class MarkdownTextarea extends Input implements Element
 {
     public string $type = 'markdown-textarea';
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public array $visibleif = [],
         public bool $required = false,
         public array $displayifset = [],

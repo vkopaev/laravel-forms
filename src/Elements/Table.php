@@ -7,8 +7,8 @@ final class Table extends Input
 {
     public string $type = 'table';
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public bool $disabled = false,
         public array $columns = [],
         public array $visibleif = [],

@@ -10,8 +10,8 @@ class TimeSelect extends Input implements Element
 {
     public string $type = 'time';
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public $step = null,
         public ?int $started = null,
         public ?int $ended = null,

@@ -7,7 +7,7 @@ use Veneridze\LaravelForms\Interfaces\Element;
 class Input implements Element
 {
 
-    public string $label;
+    public ?string $label = null;
     /**
      * Summary of options
      * @var array<Option>

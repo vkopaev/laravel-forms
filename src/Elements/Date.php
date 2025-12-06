@@ -17,8 +17,8 @@ final class Date extends Input implements Element
     }
 
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public ?string $type = 'date',
         public ?bool $disabled = false,
         public ?string $placeholder = null,

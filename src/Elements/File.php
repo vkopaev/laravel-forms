@@ -7,8 +7,8 @@ class File extends Input implements Element
 {
     public string $type = 'file';
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public ?string $accept = null,
         public int $limit = 1,
         public bool $disabled = false,

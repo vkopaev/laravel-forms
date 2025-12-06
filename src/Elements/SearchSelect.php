@@ -9,9 +9,9 @@ final class SearchSelect extends MultipleSelectFromList
 {
     public string $type = 'searchselect';
     public function __construct(
-        public string $label,
         public string $key,
         public string $link,
+        public ?string $label = null,
         public ?string $addLink = null,
         public ?array $fields = null,
         public ?bool $canSearch = false,

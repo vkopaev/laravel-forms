@@ -7,9 +7,9 @@ class FileList extends Input implements Element
 {
     public string $type = 'filelist';
     public function __construct(
-        public string $label,
         public string $key,
         public string $source,
+        public ?string $label = null,
         public int $limit = 1,
         public ?array $accept = null,
         public array $displayifset = [],

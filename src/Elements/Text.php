@@ -7,8 +7,8 @@ use Veneridze\LaravelForms\Prototype\Input;
 class Text extends Input implements Element
 {
     public function __construct(
-        public string $label,
         public string $key,
+        public ?string $label = null,
         public bool $disabled = false,
         public bool $required = false,
         public string $type = 'text',
