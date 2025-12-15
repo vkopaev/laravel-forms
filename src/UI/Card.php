@@ -9,6 +9,7 @@ final class Card implements Arrayable
         public string|int $id,
         public string $label,
         public array $data = [],
+        public ?array $fields = null,
         public ?string $hint = null,
         public ?string $icon = null,
         public ?array $features = null,
@@ -21,6 +22,7 @@ final class Card implements Arrayable
         return [
             'id' => $this->id,
             'label' => $this->label,
+            'fields' => $this->fields,
             'data' => $this->data,
             'hint' => $this->hint,
             'icon' => $this->icon,
