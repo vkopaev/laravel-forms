@@ -8,7 +8,7 @@ class Color extends Input implements Element
 {
     public string $type = 'color';
     public function __construct(
-        public string $label,
+        public ?string $label,
         public string $key,
         public string $format = 'hsl',
         public bool $alpha = false,
