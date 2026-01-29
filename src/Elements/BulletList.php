@@ -49,6 +49,6 @@ class BulletList extends Input implements Element
     }
     public function getFormatValue(array $values)
     {
-        return implode(', ', $values);
+        return json_encode($values, JSON_NUMERIC_CHECK);
     }
 }
