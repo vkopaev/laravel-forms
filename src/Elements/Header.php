@@ -6,7 +6,6 @@ final class Header implements Element
     public string $type = 'header';
     public function __construct(
         public string $label,
-        public string $key = 'header',
         public int $size = 1
     ) {
     }
@@ -27,7 +26,6 @@ final class Header implements Element
     {
         return [
             'type' => 'header',
-            'key' => $this->key,
             'label' => $this->label,
             'size' => $this->size
         ];

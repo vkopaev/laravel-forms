@@ -19,7 +19,8 @@ class Text extends Input implements Element
         public ?string $postfix = null,
         public ?int $maxlength = null,
         public ?string $placeholder = null,
-        public ?string $icon = null
+        public ?string $icon = null,
+        public ?string $autocomplete = null
     ) {
     }
     public function toArray(): array
@@ -37,7 +38,8 @@ class Text extends Input implements Element
             'visibleif' => $this->visibleif,
             'prefix' => $this->prefix,
             'postfix' => $this->postfix,
-            'displayifset' => $this->displayifset
+            'displayifset' => $this->displayifset,
+            'autocomplete' => $this->autocomplete
         ];
     }
 
